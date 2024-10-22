@@ -1,0 +1,38 @@
+Source Code:
+
+import sys 
+import time 
+import datetime
+import RPi.GPIO as a 
+import tm1637
+
+Display = tm1637.TM1637(23,24,tm1637.BRIGHT_TYPICAL)
+
+Display.Clear() 
+Display.SetBrightnes(1)
+
+while(True):
+    now = datetime.datetime.now() 
+    hour = now.hour
+    minute = now.minute 
+    second = now.second
+    currenttime = [int(hour / 10), hour % 10, int(minute / 10), minute % 10] 
+    Display.Show(currenttime)
+    Display.ShowDoublepoint(second % 2) 
+    time.sleep(1)
+
+Requirement:
+1.TM1637 4-digit seven segment Display board 2.Connecting Jumper Wires (Female to Female). Hardware Connectivity:
+1. Connect your 4 digit 7 segment display with Raspberry Pi's GPIO Pins.
+
+TM16737 Board	Function	Rpi Physical pin	Raspberry Pi Function
+GND	Ground	6	GND
+VCC	Power	2	Power Supply
+DIO	Data In	18	GPIO24
+CLK	Clock	16	GPIO23
+
+Other Requirement:
+1.	Now to download libraries, open Web Browser on your Raspberry Pi and log on to the following link: https://github.com/timwaizenegger/raspberrypi-examples/tree/master/actor-led- 7segment-4numbers . Click on the actor-led-7segment-4numbers.zip folder and Now click on Download Button to download the file.
+2.	Now on your rpi move to /home/pi/Downloads/ location to find the zip file downloaded.
+3.	Unzip the file and try to execute the different example codes present in that folder in Python Idle.
+4.	create a new file, write the code given below and save it in the same folder

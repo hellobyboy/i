@@ -1,0 +1,24 @@
+Source Code:
+
+from time import sleep
+from picamera import PiCamera
+
+camera = PiCamera() 
+camera.resolution = (1280, 720) 
+camera.start_preview()
+sleep(2) 
+camera.capture('/home/pi/Pictures/newImage.jpg') 
+camera.stop_preview()
+
+Requirement :
+1. Raspberry Pi Camera Module
+
+Hardware Connectivity:
+1.First you have to connect Camera Module to Raspberry Pi ‘s Camera port. 2.Then open Terminal window and type command as follow:
+# sudo apt-get update
+# sudo raspi-config
+3.	Go to Interface Option and enable Camera and I2C option.then click on Done option.
+Select Interfacing Options	» Camera	» Enable
+Select Interfacing Options	» I2C	» Enable
+4.	After this reboot the system, using command:
+# sudo reboot
