@@ -1,0 +1,37 @@
+Source Code:
+
+import RPi.GPIO as b 
+from time import time
+b.setmode(b.BOARD) 
+b.setup(11,b.ouput) 
+b.setup(13,b.ouput) 
+b.setup(15,b.output)
+for i in range(10):
+  b.output(11,True) 
+  print("ON") 
+  sleep(2) 
+  b.ouput(11,False) 
+  print("OFF") 
+  sleep(2) 
+  b.output(13,True) 
+  print("ON")
+  sleep(2) 
+  b.ouput(13,False) 
+  print("OFF") 
+  sleep(2) 
+  b.output(15,True) 
+  print("ON") 
+  sleep(2) 
+  b.ouput(15,False) 
+  print("OFF") 
+  sleep(2)
+print("DONE") 
+b.cleanup()
+
+Requirement:
+1.Connecting Jumper Wires (Female to Female).
+2.8 LED Display Board.
+
+Hardware Connectivity:
+1.Connect the GPIO11,GPIO13,GPIO15(pin 11 , pin13 , pin15 ) on Raspberry Pi. 2.Connect another end on 8 LED Board.
+3.Connect the GPIO6(pin 6) on Raspberry Pi for Ground. 4.Connect another end on ground of 8 LED Board.
